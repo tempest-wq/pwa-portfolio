@@ -1,0 +1,153 @@
+/* Paleta de Cores (CSS Variables) */
+:root {
+    --bg-color: #d1ffe7;
+    --text-color: #2b2d42;
+    --primary: #04d956d0;
+    --primary-hover: #04d9569b;
+    --card-bg: #ffffff;
+    --gray: #8090ab60;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.parallax {
+    background-image: url('fundo.jpg'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    background: rgba(43, 45, 66, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animar-entrada {
+    animation: slideUpFade 1s ease-out forwards;
+}
+
+.delay {
+    animation-delay: 0.3s;
+    opacity: 0; 
+}
+
+.sessao {
+    margin: 40px 0;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.02);
+}
+
+.comentario-card {
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-bottom: 15px;
+    background: var(--bg-color);
+    border-radius: 4px;
+}
+
+.acoes {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-editar { background-color: #03ff0787; color: black; }
+.btn-deletar { background-color: var(--text-color); }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--text-color);
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll;
+        background-size: cover;
+        height: 70vh;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+
+    .hero-content {
+        width: 90%;
+        padding: 20px;
+    }
+}

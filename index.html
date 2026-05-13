@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio PWA</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="./icon-192.png">
+    <script>
+        window.addEventListener('load', () => {
+            registerSW();
+        });
+
+        async function registerSW() {
+            if ('serviceWorker' in navigator) {
+                try {
+                    await navigator.serviceWorker.register('./sw.js');
+                    console.log('Service Worker registered');
+                } catch (e) {
+                    console.log('Service Worker registration failed');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Sessão Parallax -->
+    <header class="hero parallax">
+        <div class="hero-content">
+            <h1 class="animar-entrada">Olá, eu sou Vitor André</h1>
+            <p class="animar-entrada delay">Desenvolvedor e Estudante de ADS</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Sobre Mim -->
+        <section id="sobre" class="sessao">
+            <h2>Sobre Mim</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </section>
+
+        <!-- Sessão CRUD de Comentários -->
+        <section id="comentarios" class="sessao">
+            <h2>Deixe um Comentário</h2>
+            
+            <form id="form-comentario">
+                <input type="hidden" id="comentario-id">
+                <div class="grupo-input">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" required placeholder="Seu nome">
+                </div>
+                <div class="grupo-input">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" rows="4" required placeholder="Sua mensagem"></textarea>
+                </div>
+                <button type="submit" class="btn" id="btn-submit">Enviar Comentário</button>
+            </form>
+
+            <div id="lista-comentarios">
+                <!-- Comentários injetados via JS entrarão aqui -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vitor André. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="./app.js"></script>
+</body>
+</html>
